@@ -137,10 +137,14 @@ while place_order:
 
                     # Check if the quantity is a number, default to 1 if not
                     quantity = input("Enter the quantity: ")
-                    quantity = int(quantity)
-                    print("Quantity:", quantity)
-                    print("Invalid input. Quantity set to default value of 1.")
-                    quantity = 1
+                    if quantity.isdigit():
+                        quantity = int(quantity)
+                        print("Quantity:", quantity)
+
+                    else:
+                        print("Invalid input. Quantity set to default value of 1.")
+                        quantity = 1
+
                     
                     
 
@@ -161,32 +165,56 @@ while place_order:
                 # Tell the customer they didn't select a menu option
                     print("You didn't select a menu option.")   
             
+            else:
+                    print(f"{menu_category} was not a menu option.")
+
         else:
-            # Tell the customer they didn't select a menu option
-            print(f"{menu_category} was not a menu option.")
-    else:
-        # Tell the customer they didn't select a number
-        print("You didn't select a number.")
+                    print("You didn't select a number.")
+                    
+                    
+           
 
     while True:
+        menu_category = input("Please select a valid menu category or type 'q' to quit: ")
+        if menu_category == 'q':
+             break
+        elif menu_category.isdigit():
+             menu_category = int(menu_category)
+             print(f"Sub-menu for {menu_items[menu_category]}:")
+             for item in menu[menu_items[menu_category]]:
+                  print(f"- {item}")
+
+        else:
+            print("Invalid menu category. Please try again.")
+
+    else:
+            print("Invalid input. Please enter a number or 'q' to quit.")
+
+
+    
+    
+
         # Ask the customer if they would like to order anything else
-        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
-        print("This is what we are preparing for you.\n")
-        print('order')
+             keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
+        
+            print("This is what we are preparing for you.\n")
+            print('order')
 
         # 5. Check the customer's input
         # **match-case statements**
        
-        match keep_ordering.lower():
-            case ('y'):
-            
-                place_order = False
-                print("Thank you for your order.")
-                break 
+            match keep_ordering.lower():
+                case 'y':
+                    print("Continuing with the order.")
+                
+                case 'n':
+                    print("Thank you for your order.")
+                
+                
         
-            case _:
+                case _:
                            
-                print("Invalid input. Please enter 'Y' or 'N'.")
+                    print("Invalid input. Please enter 'Y' or 'N'.")
 
         
     
