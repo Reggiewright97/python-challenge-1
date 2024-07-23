@@ -141,16 +141,17 @@ while place_order:
                     print("Quantity:", quantity)
                     print("Invalid input. Quantity set to default value of 1.")
                     quantity = 1
-                    print
+                    
                     
 
                 
                     order = []
 
-            
+                    print(menu_items)
+                    
 
                     # Add the item name, price, and quantity to the order list
-                    order.append({"Item name": item_name, "Price": menu_items[item_name], "Quantity": quantity})
+                    order.append({"Item name": item_name, "Price": menu_items[menu_selection]["Price"], "Quantity": quantity})
 
       
 
@@ -177,13 +178,14 @@ while place_order:
         # **match-case statements**
        
         match keep_ordering.lower():
-            case "n":
+            case ('y'):
+            
                 place_order = False
                 print("Thank you for your order.")
                 break 
         
             case _:
-
+                           
                 print("Invalid input. Please enter 'Y' or 'N'.")
 
         
@@ -209,13 +211,13 @@ print("This is what we are preparing for you.\n")
 # Uncomment the following line to check the structure of the order
 #print(order)
 
-print("Expresso                 | 2.99  | Quantity 2")
+print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
 
 # 6. Loop through the items in the customer's order
 item = {"Drinks": "Expresso", "price": 2.99}
-price = item["2.99"]
-quantity = item["2"]
+price = item["price"]
+quantity =  quantity
 
 item_name = item.get("Drinks")
 
